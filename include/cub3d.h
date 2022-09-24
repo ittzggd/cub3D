@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:41 by hejang            #+#    #+#             */
-/*   Updated: 2022/09/24 17:35:14 by hejang           ###   ########.fr       */
+/*   Updated: 2022/09/24 21:17:09 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "./definecub3d.h"
 # include "./utils.h"
 # include "./get_next_line.h"
+# include "../mlx/mlx.h"
 
 
 // get_text_type.c
