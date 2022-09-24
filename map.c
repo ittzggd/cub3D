@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:48:40 by hejang            #+#    #+#             */
-/*   Updated: 2022/09/24 18:27:39 by hejang           ###   ########.fr       */
+/*   Updated: 2022/09/24 20:51:37 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	init_map(t_info *info, t_map *map)
 	int	y;
 	int	i;
 
-	x = 0;
 	y = 0;
 	i = 0;
 	map->max_height = info->height;
@@ -29,27 +28,28 @@ int	init_map(t_info *info, t_map *map)
 		return (ERROR);
 	while (y < map->max_height)
 	{
+		x = 0;
 		map->maps[y] = (char *)malloc(sizeof(char) * (map->max_width + 1));
 		if(!(map->maps[y]))
 			return (ERROR);
-		while (x < map->max_width && (*(info->backup) != '\n' && *(info->backup) != '\0'))
+		while (x < map->max_width  && (*(info->backup) != '\n' && *(info->backup) != '\0'))
 		{
-			map->maps[y][x] = info->backup[i];
+			map->maps[y][x] = *(info->backup);
 			if(map->maps[y][x] == 'W' || map->maps[y][x] == 'E' || map->maps[y][x] == 'N'
 				|| map->maps[y][x] == 'S')
 			{
 				map->sp_x = x;
 				map->sp_y = y;
 			}
-			i++;
+			(info->backup)++;
 			x++;
-			info->backup++;
 		}
 		while(x < map->max_width)
 		{
 			map->maps[y][x] = ' ';
 			x++;
 		}
+		(info->backup)++;
 		map->maps[y][x] = '\0';
 		y++;
 	}

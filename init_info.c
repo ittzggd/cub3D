@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/09/24 18:29:43 by hejang           ###   ########.fr       */
+/*   Updated: 2022/09/24 20:48:18 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,17 @@ static void	read_map(int fd, t_info *info, char *tmp)
 {
 	int	sp_cnt;
 	char	*bb;
-	
+	int		len;
+
 	sp_cnt = 0;
 	info->width = -1;
 	info->height = 0;
 	info->backup = ft_strdup("");
 	while(tmp)
 	{
-		if(info->width < ft_strlen(tmp))
+		len = ft_strlen(tmp);
+		if((info->width) < len)
+
 			info->width = ft_strlen(tmp);
 		sp_cnt += check_map_element(tmp);
 		bb = info->backup;

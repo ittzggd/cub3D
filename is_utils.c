@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:47:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/09/24 18:04:31 by hejang           ###   ########.fr       */
+/*   Updated: 2022/09/24 20:49:02 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	is_valid_element_color(t_info *info)
 	i = 0;
 	while(i < 3)
 	{
-		printf("info->ceiling_color[%d] : %d\n", i, info->ceiling_color[i]);
 		if(info->ceiling_color[i] < 0 || info->ceiling_color[i] > 255
 			|| info->floor_color[i] < 0 || info->floor_color[i] > 255)
 			ft_error("R,G,B colors in range [0,255]"); 
