@@ -1,36 +1,19 @@
-#include "cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_text_type.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/24 13:38:36 by yukim             #+#    #+#             */
+/*   Updated: 2022/09/24 13:38:36 by yukim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#define TRUE	1
-#define FALSE	0
-#define ERROR	-1
-
-
-enum e_text_type
-{
-	TEXTURE_NO = 10,
-	TEXTURE_SO = 11,
-	TEXTURE_WE = 12,
-	TEXTURE_EA = 13,
-	FLOOR = 20,
-	CEILLING = 21,
-	MAP_CHARACTER = 30
-};
-
-
-int			get_text_type(char **line, int fd);
-int			extract_first_info_textlen(char *line);
-int			is_space(char c);
+#include "./include/cub3d.h"
 
 static int	is_type_identifier(char *skipped_copyline);
 static int	is_type_map(char *skipped_copyline);
-
-
-
-int	is_space(char c) // space character only whitespace? or need check more space character? 
-{
-	return (c == '\t' || c == ' ');
-}
-
 
 int get_text_type(char **line, int fd)
 {
@@ -41,7 +24,6 @@ int get_text_type(char **line, int fd)
 	copy = get_skipped_copy_line(line, fd);
 	if (!copy)
 		return (0);
-
 	type = is_type_identifier(copy);
 	if (type == FALSE)
 		type = is_type_map(copy);
@@ -70,17 +52,17 @@ static int is_type_identifier(char *skipped_copyline)
 	int	info_len;
 
 	info_len = extract_first_info_textlen(skipped_copyline);
-	if (ft_strncmp("NO", line, info_len) == 0)
+	if (ft_strncmp("NO", skipped_copyline, info_len) == TRUE)
 		return (TEXTURE_NO);
-	if (ft_strncmp("SO", line, info_len) == 0)
+	if (ft_strncmp("SO", skipped_copyline, info_len) == TRUE)
 		return (TEXTURE_SO);
-	if (ft_strncmp("WE", line, info_len) == 0)
+	if (ft_strncmp("WE", skipped_copyline, info_len) == TRUE)
 		return (TEXTURE_WE);
-	if (ft_strncmp("EA", line, info_len) == 0)
+	if (ft_strncmp("EA", skipped_copyline, info_len) == TRUE)
 		return (TEXTURE_EA);
-	if (ft_strncmp("F", line, info_len) == 0)
+	if (ft_strncmp("F", skipped_copyline, info_len) == TRUE)
 		return (FLOOR);
-	if (ft_strncmp("C", line, info_len) == 0)
+	if (ft_strncmp("C", skipped_copyline, info_len) == TRUE)
 		return (CEILLING);
 	return (FALSE);
 }
@@ -89,6 +71,7 @@ static int	is_type_map(char *skipped_copyline)
 {
 	int	i;
 
+	i = 0;
 	if (skipped_copyline[i] == '0' || skipped_copyline[i] == '1' || \
 		skipped_copyline[i] == 'N' || skipped_copyline[i] == 'S' || \
 		skipped_copyline[i] == 'E' || skipped_copyline[i] == 'W')
