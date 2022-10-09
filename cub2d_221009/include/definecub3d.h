@@ -19,6 +19,8 @@
 # define FALSE 0
 # define ERROR -1
 # define SPACE -2
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_EXIT		17
@@ -149,10 +151,9 @@ typedef struct s_mlx
 
 typedef struct s_texture
 {
-	// char	*tex_xpm_addr; == info.___texture
 	int		*tex_data;
-	double	tex_width;
-	double	tex_height;
+	double	tex_xpm_width;
+	double	tex_xpm_height;
 }	t_texture;
 
 typedef struct s_key_action

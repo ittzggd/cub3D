@@ -12,6 +12,10 @@
 
 #include "./include/cub3d.h"
 
+#define TEX_WIDTH 64
+#define TEX_HEIGHT 64
+
+
 void	wallcast(t_game *game)
 {
 	int		x;
@@ -65,7 +69,7 @@ void	wallcast(t_game *game)
 
 void	reset_wall(t_ray	*ray, int x)
 {
-	ray->camera_x = 2 * x / (double)width - 1;
+	ray->camera_x = 2 * x / (double)ray->win_x - 1;
 	ray->ray_dir_x = ray->dir_x + ray->plane_x * ray->camera_x;
 	ray->ray_dir_y = ray->dir_y + ray->plane_y * ray->camera_y;
 	ray->map_x = (int)ray->pl_x;
@@ -104,15 +108,15 @@ void	tex_wall(t_game *game, t_ray *ray)
 
 	ttex = &(ray->tex);
 
-	ttex->line_height = (int)height / ray->prep_wall_dist;
+	ttex->line_height = (int)ray->win_y / ray->prep_wall_dist;
 
-	ttex->draw_start = -(ttex->line_height) / 2 + height / 2;
+	ttex->draw_start = -(ttex->line_height) / 2 + ray->win_y / 2;
 	if (ttex->draw_start < 0)
 		ttex->draw_start = 0;
 
-	ttex->draw_end = ttex->line_height / 2 + height / 2;
-	if (ttex->draw_end >= height)
-		ttex->draw_end = height - 1;
+	ttex->draw_end = ttex->line_height / 2 + ray->win_y / 2;
+	if (ttex->draw_end >= ray->win_y)
+		ttex->draw_end = ray->win_y - 1;
 
 	ttex->tex_idx = ft_get_texture(ray) - 10;
 
@@ -131,18 +135,18 @@ void	coordinate_tex(t_game *game, t_ray *ray, int x)
 	int			y;
 
 	ttex = &(ray->tex);
-	ttex->tex_x = (int)(ttex->wall_x * tex_width);
+	ttex->tex_x = (int)(ttex->wall_x * TEX_WIDTH);
 	if ((ray->side == 0 && ray->ray_dir_x > 0) || (ray->side == 1 && ray->ray_dir_y < 0))
-		ttex->tex_x = tex_width - ttex->tex_x - 1;
+		ttex->tex_x = TEX_WIDTH - ttex->tex_x - 1;
 
-	step = 1.0 * tex_height / ttex->line_height;
-	ttex->tex_pos = (ttex->draw_start - height / 2 + ttex->line_height / 2) * step;
+	step = 1.0 * TEX_HEIGHT / ttex->line_height;
+	ttex->tex_pos = (ttex->draw_start - ray->win_y / 2 + ttex->line_height / 2) * step;
 	y = ttex->draw_start;
 	while (y < ttex->draw_end)
 	{
-		ttex->tex_y = (int)ttex->tex_pos & (tex_height - 1);
+		ttex->tex_y = (int)ttex->tex_pos & (TEX_HEIGHT - 1);
 		ttex->tex_pos += step;
-		color = game->tex[ttex->tex_idx].tex_data[tex_height * (int)ttex->tex_y + (int)ttex->tex_x];
+		color = game->tex[ttex->tex_idx].tex_data[TEX_HEIGHT * (int)ttex->tex_y + (int)ttex->tex_x];
 		if(ray->side == 1)
 			color = (color >> 1) & 8355711; // make color darker for y-sides
 		ttex->re_map[y][x] = color;

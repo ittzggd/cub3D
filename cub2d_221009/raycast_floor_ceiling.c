@@ -32,16 +32,16 @@ void	floorcast(t_game *game, t_ray *ray)
 
 	y = 0;
 	fflo = &(ray->flo);
-	while(y < height)
+	while(y < ray->win_y)
 	{
 		x = 0;
 		reset_floor(ray, fflo, y);
-		while(x < width)
+		while(x < ray->win_x)
 		{
 			fflo->cell_x = (int)fflo->floor_x;
 			fflo->cell_y = (int)fflo->floor_y;
-			fflo->ftex_x = (int)(tex_width * (fflo->floor_x - fflo->cell_x)) & (tex_width - 1);
-			fflo->ftex_y = (int)(tex_width * (fflo->floor_y - fflo->cell_y)) & (tex_height - 1);
+			fflo->ftex_x = (int)(TEX_WIDTH * (fflo->floor_x - fflo->cell_x)) & (TEX_WIDTH - 1);
+			fflo->ftex_y = (int)(TEX_WIDTH * (fflo->floor_y - fflo->cell_y)) & (TEX_HEIGHT - 1);
 			fflo->floor_x += fflo->floor_step_x;
 			fflo->floor_y += fflo->floor_step_y;
 			
@@ -51,7 +51,7 @@ void	floorcast(t_game *game, t_ray *ray)
 
 			color = get_rgbcode(game->info.ceiling_color);
 			color = (color >> 1) & 8355711;
-			ray->tex.re_map[height - y - 1][x] = color;
+			ray->tex.re_map[ray->win_y - y - 1][x] = color;
 			
 			x++;
 		}
@@ -65,9 +65,9 @@ void	reset_floor(t_ray *ray, t_fl_ray *flo, int y)
 	flo->ray_dir_y0 = ray->dir_y - ray->plane_y;
 	flo->ray_dir_x1 = ray->dir_x + ray->plane_x;
 	flo->ray_dir_y1 = ray->dir_y + ray->plane_y;
-	flo->row_distance = (0.5 * height) / (y - height / 2);
-	flo->floor_step_x = flo->row_distance * (flo->ray_dir_x1 - flo->ray_dir_x0) / width;
-	flo->floor_step_y = flo->row_distance * (flo->ray_dir_y1 - flo->ray_dir_y0) / width;
+	flo->row_distance = (0.5 * ray->win_y) / (y - ray->win_y / 2);
+	flo->floor_step_x = flo->row_distance * (flo->ray_dir_x1 - flo->ray_dir_x0) / ray->win_x;
+	flo->floor_step_y = flo->row_distance * (flo->ray_dir_y1 - flo->ray_dir_y0) / ray->win_x;
 	flo->floor_x = ray->pl_x + flo->row_distance * flo->ray_dir_x0;
 	flo->floor_y = ray->pl_y + flo->row_distance * flo->ray_dir_y0;
 }

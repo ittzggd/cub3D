@@ -35,8 +35,8 @@ static int load_img_malloc(t_game *game, char *xpm_path, t_img *iimg, int i)
 	if (iimg->img_ptr == NULL)
 		ft_error("Wrong Texture Image");
 	
-	game->tex[i].tex_width = iimg->width;
-	game->tex[i].tex_height = iimg->height;
+	game->tex[i].tex_xpm_width = iimg->width;
+	game->tex[i].tex_xpm_height = iimg->height;
 
 	iimg->data = (int *)mlx_get_data_addr(iimg->img_ptr, &(iimg->bpp), &(iimg->size_line), &(iimg->endian));
 	tex_data = (int *)malloc(sizeof(int) * (iimg->width * iimg->height));
