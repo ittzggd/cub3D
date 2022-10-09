@@ -15,26 +15,26 @@
 
 # include "./cub3d.h"
 
-# define TRUE 1
-# define FALSE 0
-# define ERROR -1
-# define SPACE -2
-# define TEX_WIDTH 64
-# define TEX_HEIGHT 64
+# define TRUE				1
+# define FALSE				0
+# define ERROR				-1
+# define SPACE				-2
+# define TEX_WIDTH			512
+# define TEX_HEIGHT			512
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_EXIT		17
 
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
-# define KEY_ESC		53
-# define KEY_LEFT		123
-# define KEY_RIGHT		124
+# define KEY_W				13
+# define KEY_A				0
+# define KEY_S				1
+# define KEY_D				2
+# define KEY_ESC			53
+# define KEY_LEFT			123
+# define KEY_RIGHT			124
 
-# define FOV			60
-# define TEXTURE_COUNT	4
+# define FOV				60
+# define TEXTURE_COUNT		4
 
 typedef struct s_info
 {
@@ -47,7 +47,6 @@ typedef struct s_info
 	int		height;
 	int		width;
 	char	*backup;
-
 }	t_info;
 
 typedef struct s_map
@@ -90,7 +89,6 @@ typedef struct s_ray
 	// double		hit_x;
 	// double		hit_y;
 	int			side;
-	
 	t_ray_tex	tex;
 	t_fl_ray	flo;
 } t_ray;
@@ -162,13 +160,13 @@ typedef struct s_key_action
 
 typedef struct s_game
 {
-	t_info			info; //0
-	t_map			map; //0
-	t_img			img; // 0
-	t_mlx			mlx; // 0
+	t_info			info;
+	t_map			map;
+	t_img			img;
+	t_mlx			mlx;
 	t_ray			ray;
-	t_texture		tex[TEXTURE_COUNT];  //0
-	t_key_action	key_flag; //0
+	t_texture		tex[TEXTURE_COUNT];
+	t_key_action	key_flag;
 }	t_game;
 
 enum	orientation

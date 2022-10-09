@@ -2,7 +2,7 @@ NO ./images/texture1.xpm
 SO ./images/texture2.xpm
 WE ./images/texture3.xpm
 EA ./images/texture4.xpm
-F 220, 100, 0
+F ,220, 100, 0
 C 225,30,0
 
 111111111
