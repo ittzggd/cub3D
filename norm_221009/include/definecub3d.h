@@ -72,7 +72,6 @@ typedef struct s_ray
 	double		turn_speed;
 	double		move_speed;
 	double		camera_x;
-	// double		camera_y;
 	double		plane_x;
 	double		plane_y;
 	// double		ray_x;
