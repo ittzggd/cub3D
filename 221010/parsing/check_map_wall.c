@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_map.c                                     :+:      :+:    :+:   */
+/*   check_map_wall.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:48:41 by yukim             #+#    #+#             */
-/*   Updated: 2022/09/24 17:31:18 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:54:00 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static int	save_end_x(int *end_x, char **maps, int y, int *i)
 {
 	*end_x = maps[y][*i];
 	(*i)++;
+	return (0);
 }
 
 static int	first_last_line(char *row, char **map, int y)

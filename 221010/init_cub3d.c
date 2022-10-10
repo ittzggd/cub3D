@@ -6,13 +6,13 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 01:02:26 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 14:22:40 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/cub3d.h"
 
-static void	init_windowsize(t_game *game, t_mlx *mmlx);
+static void	init_windowsize(t_mlx *mmlx);
 static void	init_ray(t_game *game);
 static void	init_malloc_re_map(t_game *game);
 
@@ -21,10 +21,10 @@ void	init_cub3d(t_game *game)
 	init_map(game, &(game->map), &(game->info));
 	// if (is_valid_map(&(game->map)) == ERROR)
 	// 	ft_error("[Error] Invalid map\n");
-	init_windowsize(game, &(game->mlx));
+	init_windowsize(&(game->mlx));
 	init_ray(game);
-	load_texture(game);
 	load_window(game);
+	load_texture(game);
 	init_malloc_re_map(game);
 }
 
@@ -54,10 +54,11 @@ void	save_dir_vector(t_game *game, char dir)
 	game->ray.x_dir_y = -(game->ray.dir_x);
 }
 
-static void	init_windowsize(t_game *game, t_mlx *mmlx)
+static void	init_windowsize(t_mlx *mmlx)
 {
-	mmlx->window_height = 640 * 2;
-	mmlx->window_width = 480 * 2;
+	mmlx->mlx = mlx_init();
+	mmlx->window_height = 640;
+	mmlx->window_width = 480;
 }
 
 static void	init_ray(t_game *game)

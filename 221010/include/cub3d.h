@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:41 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 00:53:35 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:53:33 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*get_texture_filepath(char **line);
 int		get_rgb_array(char **line, int *array);
 char	*get_second_info(char *str);
 char	*get_rgb_str(char **line);
-int		change_rgb_str_to_array(char *line, int *array, int *res);
+int		change_rgb_str_to_array(char *line, int *array);
 int		ft_skip(const char *str, int *i);
 char	*get_skipped_copy_line(char **line, int fd);
 void	skip_new_line(char **line, int fd);
@@ -64,7 +64,7 @@ void	draw(t_game *game);
 void	floorcast(t_game *game, t_ray *ray);
 void	wallcast(t_game *game);
 int		is_hit(t_game *game, t_ray *ray);
-void	tex_wall(t_game *game, t_ray *ray);
+void	tex_wall(t_ray *ray);
 void	coordinate_tex(t_game *game, t_ray *ray, int x);
 
 

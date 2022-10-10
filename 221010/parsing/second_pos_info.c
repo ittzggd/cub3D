@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_second_position_value.c                        :+:      :+:    :+:   */
+/*   second_pos_info.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:38:32 by yukim             #+#    #+#             */
-/*   Updated: 2022/09/24 13:38:32 by yukim            ###   ########.fr       */
+/*   Updated: 2022/10/10 13:54:28 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*get_texture_filepath(char **line)
 int		get_rgb_array(char **line, int *array)
 {
 	char	*rgb_str;
-	int		i;
 	int		res;
 
 	if (!(*line))
@@ -41,7 +40,7 @@ int		get_rgb_array(char **line, int *array)
 	rgb_str = get_rgb_str(line);
 	if (rgb_str)
 	{
-		change_rgb_str_to_array(rgb_str, array, &res);
+		res = change_rgb_str_to_array(rgb_str, array);
 		free(rgb_str);
 	}
 	return (res);

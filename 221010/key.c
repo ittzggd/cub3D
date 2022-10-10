@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:14:51 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 00:53:52 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 14:27:37 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	key_press(int keycode, t_game *game)
 		kkey->rotate_left = TRUE;
 	else if (keycode == KEY_RIGHT)
 		kkey->rotate_right = TRUE;
+	key_action(game);
 	return (1);
 }
 

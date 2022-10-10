@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 20:25:55 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 00:45:12 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:49:24 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,10 @@ void move_forward_or_backward(t_game *game)
 	double		new_y;
 
 	rray = &(game->ray);
-	if (game->key_flag.move_backward == TRUE)
-	{
-		new_x = rray->pl_x - rray->dir_x * rray->move_speed;
-		new_y = rray->pl_y - rray->dir_y * rray->move_speed;
-		game->key_flag.move_backward = FALSE;
-	}
-	else if (game->key_flag.move_forward == TRUE)
+	new_x = rray->pl_x - rray->dir_x * rray->move_speed;
+	new_y = rray->pl_y - rray->dir_y * rray->move_speed;
+	game->key_flag.move_backward = FALSE;
+	if (game->key_flag.move_forward == TRUE)
 	{
 		new_x = rray->pl_x + rray->dir_x * rray->move_speed;
 		new_y = rray->pl_y + rray->dir_y * rray->move_speed;
@@ -45,13 +42,11 @@ void move_left_or_right(t_game *game)
 	double		new_x;
 	double		new_y;
 
-	if (game->key_flag.move_left == TRUE)
-	{
-		new_x = rray->pl_x + (rray->x_dir_x * rray->move_speed) + 0.00001; // 0.00001이 값 조절하면서 역할 체크
-		new_y = rray->pl_y + (rray->x_dir_y * rray->move_speed) + 0.00001;
-		game->key_flag.move_left = FALSE;
-	}
-	else if (game->key_flag.move_right == TRUE)
+	rray = &(game->ray);
+	new_x = rray->pl_x + (rray->x_dir_x * rray->move_speed) + 0.00001; // 0.00001이 값 조절하면서 역할 체크
+	new_y = rray->pl_y + (rray->x_dir_y * rray->move_speed) + 0.00001;
+	game->key_flag.move_left = FALSE;
+ 	if (game->key_flag.move_right == TRUE)
 	{
 		new_x = rray->pl_x - (rray->x_dir_x * rray->move_speed) + 0.00001;
 		new_y = rray->pl_y - (rray->x_dir_y * rray->move_speed) + 0.00001;

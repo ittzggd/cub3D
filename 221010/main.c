@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:26:09 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 00:43:31 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 14:27:30 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int	main(int argc, char **argv)
 
 int	main_loop_ray(t_game *game)
 {
-	int		is_update;
+	// int		is_update;
 
-	is_update = key_action(game);
-	if (is_update == TRUE)
-	{
+	// is_update = key_action(game);
+	// if (is_update == TRUE)
+	// {
 		raycast(game);
 		draw(game);
-	}
+	// }
 	return (0);
 }
 

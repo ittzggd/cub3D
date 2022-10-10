@@ -6,44 +6,34 @@
 #    By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 21:55:03 by hejang            #+#    #+#              #
-#    Updated: 2022/10/09 23:49:33 by hejang           ###   ########.fr        #
+#    Updated: 2022/10/10 13:46:00 by hejang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
-CC = gcc -g3 -fsanitize=address
-CFLAGS = -Wall -Wextra -Werror 
-AR = ar
-ARFLAGS = crs
-#OMFILE_FLAGS = -lreadline -L/opt/homebrew/opt/readline/lib
-#OBJ_FLAGS = -I/opt/homebrew/opt/readline/include
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 #COMPILE_FLAGS = -g3 -fsanitize=address
-#MLX_FLAGS = -I. -Lmlx -lmlx -framework OpenGL -framework Appkit
-SRCS =  $(wildcard ${PWD}/*.c) \
-		$(wildcard ${PWD}/*/*.c)
-#MAIN_SRCS =  $(addprefix src/, main.c) src/install/execve.c src/install/fork.c
-#PARSE_SRCS = $(addprefix src/parse/, ft_cmd_list.c ft_list.c ft_env_list.c ft_parser.c ft_string_list.c ft_check_type.c ft_env_parser.c)
-#LIBFT_SRCS = $(addprefix src/libft/, ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_cmpstr.c ft_split.c ft_strlcpy.c)
+MLX_FLAGS = -L./mlx -lmlx -framework OpenGL -framework Appkit
 
-#MAIN_OBJS = $(MAIN_SRCS:.c=.o)
-#PARSE_OBJS = $(PARSE_SRCS:.c=.o)
-#LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+SRCS = main.c \
+		key.c raycast_floor_ceiling.c load.c move.c raycast_wall.c \
+		raycast_wall_utils.c init_cub3d.c raycast_draw.c rotate.c \
+		./utils/ft_bzero.c ./utils/ft_str_func.c ./utils/get_next_line.c \
+    	./utils/is_utils.c ./utils/utils.c \
+		./parsing/check_argument.c ./parsing/get_text_type.c ./parsing/map.c \
+		./parsing/second_pos_info_utils.c ./parsing/check_map_wall.c \
+		./parsing/init_info.c ./parsing/second_pos_info.c ./parsing/skip.c
+
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
-
-#%.o: %.c
-#	$(CC) $(OBJ_FLAGS) -c $< -o $@
-
-#$(NAME) : $(OBJS)
-
-#		$(AR) $(ARFLAGS) $(COMFILE_FALGS) $(OBJS) -o $(NAME)
+$(NAME) :$(OBJS)
+	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 clean :
 	rm -rf $(OBJS) 

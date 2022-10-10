@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/09/24 20:48:18 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:54:15 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	init_info(int fd, t_info *info)
 {
 	int		type;
 	char	*tmp;
-	char	*f_color;
-	char	*c_color;
 
 	init_rgb_array(info);
 	tmp = get_next_line(fd);

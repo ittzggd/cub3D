@@ -14,10 +14,9 @@
 
 static int	case_space(char *str);
 
-int		change_rgb_str_to_array(char *rgb_str, int *array, int *res)
+int		change_rgb_str_to_array(char *rgb_str, int *array)
 {
 	int		i;
-	int		j;
 	char	*comma_ptr;
 	char	*start;
 
@@ -58,6 +57,7 @@ static int	case_space(char *str)
 char	*get_second_info(char *str)
 {
 	char	*second_info;
+	int		i;
 
 	second_info = NULL;
 	while (*str && is_space(*str))
@@ -68,6 +68,10 @@ char	*get_second_info(char *str)
 		if (!second_info)
 			ft_error("[func : get_second_info] malloc faild.");
 	}
+	i = 0;
+	while (second_info[i] && second_info[i] != '\n')
+		i++;
+	second_info[i] = '\0';
 	return (second_info);
 }
 

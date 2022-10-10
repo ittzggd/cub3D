@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:17:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 00:54:10 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:50:14 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_hit(t_game *game, t_ray *ray)
 	return (ret);
 }
 
-void	tex_wall(t_game *game, t_ray *ray)
+void	tex_wall(t_ray *ray)
 {
 	t_ray_tex	*ttex;
 

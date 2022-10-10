@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:38:35 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 00:48:54 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:51:55 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void rotate_camera(t_game *game)
 	double	ssin;
 
 	rray = &(game->ray);
+	copy = NULL;
+	ccos = 0.0;
+	ssin = 0.0;
 	copy_struct_contents(rray, copy);
-	if (game->key_flag.rotate_left == TRUE)
-	{
-		save_cos_sin(rray, &ccos, &ssin, R_LEFT);
-		game->key_flag.rotate_left = FALSE;
-	}
-	else if (game->key_flag.rotate_right == TRUE)
+	save_cos_sin(rray, &ccos, &ssin, R_LEFT);
+	game->key_flag.rotate_left = FALSE;
+	if (game->key_flag.rotate_right == TRUE)
 	{
 		save_cos_sin(rray, &ccos, &ssin, R_RIGHT);
 		game->key_flag.rotate_right = FALSE;

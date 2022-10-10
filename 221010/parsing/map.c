@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:48:40 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 00:50:19 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 13:52:18 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	init_map(t_game *game, t_map *map, t_info *info)
 		y++;
 	}
 	map->maps[y] = NULL;
+	return (0);
 }
 
 static void	save_mapx_and_startpos(t_game *game, t_map *map, t_info *info, int y)

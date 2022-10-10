@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:53:49 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 00:46:30 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 14:33:29 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	raycast(t_game *game)
 {
 	init_ray_tex_struct(&(game->ray));
-	floorcast(game, &(game->ray));
+//	floorcast(game, &(game->ray));
 	wallcast(game);
 }
 

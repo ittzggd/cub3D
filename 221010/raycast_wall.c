@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_wall.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:50:43 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/09 13:50:43 by yukim            ###   ########.fr       */
+/*   Updated: 2022/10/10 13:52:48 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	wallcast(t_game *game)
 {
 	int		x;
 	int		hit;
-	int		side;
 	double	prep_wall_dist;
 	t_ray	*ray;
 
@@ -37,7 +36,7 @@ void	wallcast(t_game *game)
 		else
 			prep_wall_dist = (ray->map_y - ray->pl_y \
 								+ ( 1 - ray->step_y) / 2) / ray->ray_dir_y;
-		tex_wall(game, ray);
+		tex_wall(ray);
 		coordinate_tex(game, ray, x);
 		x++;
 	}

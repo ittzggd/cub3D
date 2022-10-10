@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:14:59 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 01:06:12 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 14:22:15 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	load_window(t_game *game)
 
 	mmlx = &(game->mlx);
 	iimg = &(game->img);
-	game->mlx.mlx = mlx_init();
 	game->mlx.mlx_win = mlx_new_window \
 				(mmlx->mlx, mmlx->window_width, mmlx->window_height, "cub3D");
 	iimg->img_ptr = mlx_new_image \
@@ -33,7 +32,6 @@ void	load_window(t_game *game)
 
 void	load_texture(t_game *game)
 {
-	int		i;
 	t_img	iimg;
 
 	game->tex[0].tex_data \
@@ -51,7 +49,7 @@ static int	*load_img_malloc(t_game *game, char *xpm_path, t_img *iimg, int i)
 	int		*tex_data;
 
 	iimg->img_ptr = mlx_xpm_file_to_image \
-			(game->mlx.mlx, xpm_path, &(iimg->width), &(iimg->height));
+				(game->mlx.mlx, xpm_path, &(iimg->width), &(iimg->height));
 	if (iimg->img_ptr == NULL)
 		ft_error(xpm_path);
 	game->tex[i].tex_xpm_width = iimg->width;
@@ -83,4 +81,5 @@ static int	load_img_malloc_util(int *tex_data, t_img *iimg)
 		}
 		row_y++;
 	}
+	return (0);
 }
