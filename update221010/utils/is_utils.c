@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:47:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/09/24 20:49:02 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 16:34:04 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	is_valid_element_color(t_info *info)
 	{
 		if (info->ceiling_color[i] < 0 || info->ceiling_color[i] > 255
 			|| info->floor_color[i] < 0 || info->floor_color[i] > 255)
-			ft_error("R,G,B colors in range [0,255]"); 
+			ft_error("R,G,B colors in range [0,255]");
 		i++;
 	}
 }

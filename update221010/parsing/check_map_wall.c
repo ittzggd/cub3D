@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:48:41 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:26:15 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 16:31:35 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ static int	first_last_line(char *row, char **map, int y)
 		if (is_space(row[i]) == TRUE)
 		{
 			if (y == 0 \
-				&& (is_wall(map[y + 1][i]) == FALSE || is_space(map[y + 1][i])\
+				&& (is_wall(map[y + 1][i]) == FALSE || is_space(map[y + 1][i]) \
 				== FALSE))
 				return (ERROR);
 			if (y != 0 \
-				&& (is_wall(map[y - 1][i]) == FALSE || is_space(map[y - 1][i])\
+				&& (is_wall(map[y - 1][i]) == FALSE || is_space(map[y - 1][i]) \
 				== FALSE))
 				return (ERROR);
 		}

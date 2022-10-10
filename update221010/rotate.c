@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:38:35 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:15:54 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 16:35:11 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #define R_LEFT	0
 #define R_RIGHT	1
 
-static void	copy_struct_contents(t_ray *origin, t_ray* copy);
+static void	copy_struct_contents(t_ray *origin, t_ray *copy);
 static void	save_cos_sin(t_ray *rray, double *ccos, double *ssin, int r_dir);
 
-void rotate_camera(t_game *game)
+void	rotate_camera(t_game *game)
 {
 	t_ray	*rray;
 	t_ray	copy;
@@ -44,7 +44,7 @@ void rotate_camera(t_game *game)
 	rray->x_dir_y = (copy.x_dir_x * ssin) + (rray->x_dir_y * ccos);
 }
 
-static void	copy_struct_contents(t_ray *origin, t_ray* copy)
+static void	copy_struct_contents(t_ray *origin, t_ray *copy)
 {
 	copy->pl_x = origin->pl_x;
 	copy->pl_y = origin->pl_y;

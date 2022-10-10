@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:50:43 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:23:30 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 16:35:45 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	wallcast(t_game *game)
 			hit = is_hit(game, ray);
 		if (ray->side == 0)
 			prep_wall_dist = (ray->map_x - ray->pl_x \
-								+ ( 1 - ray->step_x) / 2) / ray->ray_dir_x;
+								+ (1 - ray->step_x) / 2) / ray->ray_dir_x;
 		else
 			prep_wall_dist = (ray->map_y - ray->pl_y \
-								+ ( 1 - ray->step_y) / 2) / ray->ray_dir_y;
+								+ (1 - ray->step_y) / 2) / ray->ray_dir_y;
 		tex_wall(ray);
 		coordinate_tex(game, ray, x);
 		x++;

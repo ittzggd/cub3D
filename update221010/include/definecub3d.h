@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   definecub3d.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:49 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 01:01:25 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 16:33:41 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 # include "./cub3d.h"
 
-# define TRUE 1
-# define FALSE 0
-# define ERROR -1
-# define SPACE -2
-# define TEX_WIDTH 512
-# define TEX_HEIGHT 512
+# define TRUE				1
+# define FALSE				0
+# define ERROR				-1
+# define SPACE				-2
+# define TEX_WIDTH			64
+# define TEX_HEIGHT			64
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_EXIT		17
 
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
-# define KEY_ESC		53
-# define KEY_LEFT		123
-# define KEY_RIGHT		124
+# define KEY_W				13
+# define KEY_A				0
+# define KEY_S				1
+# define KEY_D				2
+# define KEY_ESC			53
+# define KEY_LEFT			123
+# define KEY_RIGHT			124
 
-# define FOV			60
-# define TEXTURE_COUNT	4
+# define FOV				60
+# define TEXTURE_COUNT		4
 
 typedef struct s_info
 {
@@ -57,9 +57,9 @@ typedef struct s_map
 	int		max_height;
 	int		sp_x;
 	int		sp_y;
-} t_map;
+}	t_map;
 
-typedef	struct s_ray_tex
+typedef struct s_ray_tex
 {
 	int		**re_map;
 	int		line_height;
@@ -72,7 +72,7 @@ typedef	struct s_ray_tex
 	double	tex_pos;
 }	t_ray_tex;
 
-typedef	struct s_fl_ray
+typedef struct s_fl_ray
 {
 	double	ray_dir_x0;
 	double	ray_dir_y0;
@@ -98,7 +98,7 @@ typedef struct s_ray
 	double		dir_x;
 	double		dir_y;
 	double		x_dir_x;
-	double	 	x_dir_y;
+	double		x_dir_y;
 	double		turn_speed;
 	double		move_speed;
 	double		camera_x;
@@ -123,7 +123,7 @@ typedef struct s_ray
 	
 	t_ray_tex	tex;
 	t_fl_ray	flo;
-} t_ray;
+}	t_ray;
 
 
 typedef struct s_mlx
@@ -145,7 +145,6 @@ typedef struct s_img
 	int		width;
 }	t_img;
 
-
 typedef struct s_texture
 {
 	int		*tex_data;
@@ -165,16 +164,16 @@ typedef struct s_key_action
 
 typedef struct s_game
 {
-	t_info			info; //0
-	t_map			map; //0
-	t_img			img; // 0
-	t_mlx			mlx; // 0
+	t_info			info;
+	t_map			map;
+	t_img			img;
+	t_mlx			mlx;
 	t_ray			ray;
-	t_texture		tex[TEXTURE_COUNT];  //0
-	t_key_action	key_flag; //0
+	t_texture		tex[TEXTURE_COUNT];
+	t_key_action	key_flag;
 }	t_game;
 
-enum	orientation
+enum	e_orientation
 {
 	N = 1,
 	S,

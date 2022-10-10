@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:41 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 13:53:33 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/10 16:32:19 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-#define CUB3D_H
+# define CUB3D_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -66,6 +66,5 @@ void	wallcast(t_game *game);
 int		is_hit(t_game *game, t_ray *ray);
 void	tex_wall(t_ray *ray);
 void	coordinate_tex(t_game *game, t_ray *ray, int x);
-
 
 #endif

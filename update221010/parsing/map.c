@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:48:40 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 16:25:48 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 16:31:54 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	init_map(t_game *game, t_map *map, t_info *info)
 	while (y < map->max_height)
 	{
 		map->maps[y] = (char *)malloc(sizeof(char) * (map->max_width + 1));
-		if(!(map->maps[y]))
+		if (!(map->maps[y]))
 			ft_error("[ERROR 2] init map malloc failed.");
 		save_mapx_startpos(game, map, info, y);
 		fill_space(&x, y, map);
@@ -81,7 +81,7 @@ static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y)
 	}
 }
 
-static void		init_map_init_var(int *y, int *i, t_map *map, t_info *info)
+static void	init_map_init_var(int *y, int *i, t_map *map, t_info *info)
 {
 	*y = 0;
 	*i = 0;
@@ -92,9 +92,9 @@ static void		init_map_init_var(int *y, int *i, t_map *map, t_info *info)
 		ft_error("[ERROR 1] init map malloc failed.");
 }
 
-static void		fill_space(int *x, int y, t_map *map)
+static void	fill_space(int *x, int y, t_map *map)
 {
-	while(*x < map->max_width)
+	while ((*x) < map->max_width)
 	{
 		map->maps[y][*x] = ' ';
 		(*x)++;
