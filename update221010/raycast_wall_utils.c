@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:17:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:23:25 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 16:43:41 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	set_coor_tex_var(t_ray_tex *ttex, double *step, t_ray *ray);
 
 int	is_hit(t_game *game, t_ray *ray)
 {
-	int	ret;
+	int	hit;
 
-	ret = 0;
+	hit = 0;
 	if (ray->side_dist_x < ray->side_dist_y)
 	{
 		ray->side_dist_x += ray->delta_dist_x;
@@ -33,8 +33,8 @@ int	is_hit(t_game *game, t_ray *ray)
 		ray->side = 1;
 	}
 	if (game->map.maps[ray->map_x][ray->map_y] == '1')
-		ret = 1;
-	return (ret);
+		hit = 1;
+	return (hit);
 }
 
 void	tex_wall(t_ray *ray)
@@ -42,7 +42,7 @@ void	tex_wall(t_ray *ray)
 	t_ray_tex	*ttex;
 
 	ttex = &(ray->tex);
-	ttex->line_height = (int)ray->win_y / ray->prep_wall_dist;
+	ttex->line_height = (int)(ray->win_y / ray->prep_wall_dist);
 	ttex->draw_start = -(ttex->line_height) / 2 + ray->win_y / 2;
 	if (ttex->draw_start < 0)
 		ttex->draw_start = 0;
