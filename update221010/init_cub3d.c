@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 17:05:58 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 17:07:26 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	save_dir_vector(t_game *game, char dir)
 static void	init_windowsize(t_mlx *mmlx)
 {
 	mmlx->mlx = mlx_init();
-	mmlx->window_height = 480 * 2;
-	mmlx->window_width = 640 * 2;
+	mmlx->window_height = 480 * 3;
+	mmlx->window_width = 640 * 3;
 }
 
 static void	init_ray(t_game *game)

@@ -2,8 +2,8 @@ NO ../textures/wood.xpm
 SO ../textures/barrel.xpm
 WE ../textures/mossy.xpm
 EA ../textures/redbrick.xpm
-F 0,0,0
-C 255,255,255
+F 102,102,51
+C 51,255,51
 
 111111111
 100000101

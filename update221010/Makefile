@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 21:55:03 by hejang            #+#    #+#              #
-#    Updated: 2022/10/10 13:46:00 by hejang           ###   ########.fr        #
+#    Updated: 2022/10/10 17:16:27 by yukim            ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-#COMPILE_FLAGS = -g3 -fsanitize=address
+COMPILE_FLAGS = -g3 -fsanitize=address
 MLX_FLAGS = -L./mlx -lmlx -framework OpenGL -framework Appkit
 
 SRCS = main.c \
@@ -30,7 +30,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) :$(OBJS)
-	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJS) $(COMPILE_FLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
