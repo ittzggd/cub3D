@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:49 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 16:33:41 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 17:05:04 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define FALSE				0
 # define ERROR				-1
 # define SPACE				-2
-# define TEX_WIDTH			64
-# define TEX_HEIGHT			64
+# define TEX_WIDTH			512
+# define TEX_HEIGHT			512
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_EXIT		17

@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:24:38 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/10 17:05:58 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	save_dir_vector(t_game *game, char dir)
 static void	init_windowsize(t_mlx *mmlx)
 {
 	mmlx->mlx = mlx_init();
-	mmlx->window_height = 640;
-	mmlx->window_width = 480;
+	mmlx->window_height = 480 * 2;
+	mmlx->window_width = 640 * 2;
 }
 
 static void	init_ray(t_game *game)
@@ -67,8 +67,8 @@ static void	init_ray(t_game *game)
 	game->ray.pl_y = game->map.sp_y + 0.5;
 	game->ray.win_x = game->mlx.window_width;
 	game->ray.win_y = game->mlx.window_height;
-	game->ray.turn_speed = 0.05;
-	game->ray.move_speed = 0.05;
+	game->ray.turn_speed = 0.2;
+	game->ray.move_speed = 0.2;
 	game->ray.plane_x = 0;
 	game->ray.plane_y = 0.66;
 	game->img.width = TEX_WIDTH;
