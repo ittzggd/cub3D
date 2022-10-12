@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:47:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:34:04 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/12 17:38:34 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_space(char c)
 {
-	return (c == '\t' || c == ' ');
+	return ( c == ' ' || c == '\t');
 }
 
 void	is_map_last(t_info *info)

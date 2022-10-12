@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:48:40 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 16:31:54 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/12 18:58:07 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
 static void	init_map_init_var(int *y, int *i, t_map *map, t_info *info);
-static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y);
+static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y, int *x);
 static void	fill_space(int *x, int y, t_map *map);
 
 int	check_map_element(char *line)
@@ -33,7 +33,7 @@ int	check_map_element(char *line)
 		}
 		if (line[i] == 'N' || line[i] == 'S' \
 			|| line[i] == 'E' || line[i] == 'W')
-			cnt++;
+			cnt++;	
 		i++;
 	}
 	return (cnt);
@@ -48,10 +48,11 @@ int	init_map(t_game *game, t_map *map, t_info *info)
 	init_map_init_var(&y, &i, map, info);
 	while (y < map->max_height)
 	{
+		x = 0;
 		map->maps[y] = (char *)malloc(sizeof(char) * (map->max_width + 1));
 		if (!(map->maps[y]))
 			ft_error("[ERROR 2] init map malloc failed.");
-		save_mapx_startpos(game, map, info, y);
+		save_mapx_startpos(game, map, info, y, &x);
 		fill_space(&x, y, map);
 		(info->backup)++;
 		y++;
@@ -60,24 +61,21 @@ int	init_map(t_game *game, t_map *map, t_info *info)
 	return (0);
 }
 
-static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y)
+static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y, int *x)
 {
-	int	x;
-
-	x = 0;
-	while (x < map->max_width \
+	while (*x < map->max_width \
 				&& (*(info->backup) != '\n' && *(info->backup) != '\0'))
 	{
-		map->maps[y][x] = *(info->backup);
-		if (map->maps[y][x] == 'W' || map->maps[y][x] == 'E' \
-			|| map->maps[y][x] == 'N' || map->maps[y][x] == 'S')
+		map->maps[y][*x] = *(info->backup);
+		if (map->maps[y][*x] == 'W' || map->maps[y][*x] == 'E' \
+			|| map->maps[y][*x] == 'N' || map->maps[y][*x] == 'S')
 		{
-			map->sp_x = x;
+			map->sp_x = *x;
 			map->sp_y = y;
-			save_dir_vector(game, map->maps[y][x]);
+			save_dir_vector(game, map->maps[y][*x]);
 		}
 		(info->backup)++;
-		x++;
+		(*x)++;
 	}
 }
 
