@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/12 19:24:40 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/12 21:04:17 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	init_malloc_re_map(t_game *game);
 void	init_cub3d(t_game *game)
 {
 	init_map(game, &(game->map), &(game->info));
+	for(int i = 0; i < game->map.max_height; i++)
+		printf("%s\n", game->map.maps[i]);
 	if (is_valid_map(&(game->map)) == ERROR)
 		ft_error("[Error] Invalid map\n");
 	init_windowsize(&(game->mlx));

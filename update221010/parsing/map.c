@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:48:40 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/12 18:58:07 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/12 21:03:01 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static void	save_mapx_startpos(t_game *game, t_map *map, t_info *info, int y, in
 			map->sp_x = *x;
 			map->sp_y = y;
 			save_dir_vector(game, map->maps[y][*x]);
+			map->maps[y][*x] = '0';
 		}
 		(info->backup)++;
 		(*x)++;
