@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 17:07:26 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/11 22:12:37 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	init_malloc_re_map(t_game *game);
 void	init_cub3d(t_game *game)
 {
 	init_map(game, &(game->map), &(game->info));
-	// if (is_valid_map(&(game->map)) == ERROR)
-	// 	ft_error("[Error] Invalid map\n");
+	if (is_valid_map(&(game->map)) == ERROR)
+		ft_error("[Error] Invalid map\n");
 	init_windowsize(&(game->mlx));
 	init_ray(game);
 	load_window(game);
@@ -34,21 +34,29 @@ void	save_dir_vector(t_game *game, char dir)
 	{
 		game->ray.dir_x = -1;
 		game->ray.dir_y = 0;
+		game->ray.plane_x = 0;
+		game->ray.plane_y = -0.66;
 	}
 	else if (dir == 'E')
 	{
 		game->ray.dir_x = 1;
 		game->ray.dir_y = 0;
+		game->ray.plane_x = 0;
+		game->ray.plane_y = 0.66;
 	}
 	else if (dir == 'N')
 	{
 		game->ray.dir_x = 0;
 		game->ray.dir_y = -1;
+		game->ray.plane_x = 0.66;
+		game->ray.plane_y = 0;
 	}
 	else if (dir == 'S')
 	{
 		game->ray.dir_x = 0;
 		game->ray.dir_y = 1;
+		game->ray.plane_x = -0.66;
+		game->ray.plane_y = 0;
 	}
 	game->ray.x_dir_x = game->ray.dir_y;
 	game->ray.x_dir_y = -(game->ray.dir_x);
@@ -57,8 +65,8 @@ void	save_dir_vector(t_game *game, char dir)
 static void	init_windowsize(t_mlx *mmlx)
 {
 	mmlx->mlx = mlx_init();
-	mmlx->window_height = 480 * 3;
-	mmlx->window_width = 640 * 3;
+	mmlx->window_height = 480 ;
+	mmlx->window_width = 640 ;
 }
 
 static void	init_ray(t_game *game)
@@ -69,8 +77,8 @@ static void	init_ray(t_game *game)
 	game->ray.win_y = game->mlx.window_height;
 	game->ray.turn_speed = 0.2;
 	game->ray.move_speed = 0.2;
-	game->ray.plane_x = 0;
-	game->ray.plane_y = 0.66;
+	// game->ray.plane_x = 0;
+	// game->ray.plane_y = 0.66;
 	game->img.width = TEX_WIDTH;
 	game->img.height = TEX_HEIGHT;
 }

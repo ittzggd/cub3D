@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_wall_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:17:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:43:41 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/11 22:03:06 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_hit(t_game *game, t_ray *ray)
 		ray->map_y += ray->step_y;
 		ray->side = 1;
 	}
-	if (game->map.maps[ray->map_x][ray->map_y] == '1')
+	if (game->map.maps[(int)ray->map_x][(int)ray->map_y] != '0')
 		hit = 1;
 	return (hit);
 }
