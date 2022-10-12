@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:17:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/11 22:03:06 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/12 19:47:57 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,13 @@ int	is_hit(t_game *game, t_ray *ray)
 		ray->map_y += ray->step_y;
 		ray->side = 1;
 	}
-	if (game->map.maps[(int)ray->map_x][(int)ray->map_y] != '0')
+	if(ray->map_x >= game->map.max_height)
+		ray->map_x = game->map.max_height - 1;
+	if(ray->map_y >= game->map.max_width)
+		ray->map_y = game->map.max_width - 1;
+	if (game->map.maps[(int)ray->map_x][(int)ray->map_y] == '1'
+		||game->map.maps[(int)ray->map_x][(int)ray->map_y] == ' '
+		||game->map.maps[(int)ray->map_x][(int)ray->map_y] == '\t')
 		hit = 1;
 	return (hit);
 }

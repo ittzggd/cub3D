@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/12 18:58:03 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/12 19:24:40 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	init_windowsize(t_mlx *mmlx)
 
 static void	init_ray(t_game *game)
 {
-	game->ray.pl_x = game->map.sp_x + 0.5;
+	game->ray.pl_x = game->map.sp_x;
 	game->ray.pl_y = game->map.sp_y + 0.5;
 	game->ray.win_x = game->mlx.window_width;
 	game->ray.win_y = game->mlx.window_height;
