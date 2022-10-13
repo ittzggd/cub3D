@@ -6,14 +6,13 @@
 #    By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 21:55:03 by hejang            #+#    #+#              #
-#    Updated: 2022/10/12 16:28:15 by hejang           ###   ########.fr        #
+#    Updated: 2022/10/13 20:16:34 by hejang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
-COMPILE_FLAGS = -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -L./mlx -lmlx -framework OpenGL -framework Appkit
 
 SRCS = main.c \
@@ -30,7 +29,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) :$(OBJS)
-	$(CC) $(OBJS) $(COMPILE_FLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
