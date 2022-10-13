@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_info.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/13 19:23:32 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/13 20:03:12 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	init_info(int fd, t_info *info)
 		tmp = get_next_line(fd);
 	}
 	is_valid_element_color(info);
+	is_valid_texture_color(info);
 }
 
 static void	init_rgb_array(t_info *info)
@@ -62,20 +63,6 @@ static void	case_mapchar(int fd, t_info *info, char *tmp)
 	read_map(fd, info, tmp);
 }
 
-static void	check_texture_color_info(t_info *info)
-{
-	int	i;
-
-	i = 0;
-	if(!(info->north_texture) || !(info->south_texture) || !(info->west_texture) || !(info->east_texture))
-		ft_error("no texture info");
-	while(i < 3)
-	{
-		if(info->ceiling_color[i] == -999 || info->floor_color[i] == -999)
-			ft_error("no color info");
-		i++;
-	}
-}
 
 static void	init_info_texture_color(t_info *info, int type, char *tmp)
 {
@@ -91,7 +78,6 @@ static void	init_info_texture_color(t_info *info, int type, char *tmp)
 		get_rgb_array(&tmp, info->floor_color);
 	else if (type == CEILLING)
 		get_rgb_array(&tmp, info->ceiling_color);
-	check_texture_color_info(info);
 }
 
 static void	read_map(int fd, t_info *info, char *tmp)

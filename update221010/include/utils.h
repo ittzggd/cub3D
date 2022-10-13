@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:46:57 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/03 18:56:26 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/13 20:00:47 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		is_wall(char c);
 int		is_space(char c);
 void	is_map_last(t_info *info);
 void	is_valid_element_color(t_info *info);
+void	is_valid_texture_color(t_info *info);
 
 //utils.c
 int		ft_filecmp(char *argv);
