@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/12 18:58:08 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/13 19:23:32 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,21 @@ static void	case_mapchar(int fd, t_info *info, char *tmp)
 	read_map(fd, info, tmp);
 }
 
+static void	check_texture_color_info(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	if(!(info->north_texture) || !(info->south_texture) || !(info->west_texture) || !(info->east_texture))
+		ft_error("no texture info");
+	while(i < 3)
+	{
+		if(info->ceiling_color[i] == -999 || info->floor_color[i] == -999)
+			ft_error("no color info");
+		i++;
+	}
+}
+
 static void	init_info_texture_color(t_info *info, int type, char *tmp)
 {
 	if (type == TEXTURE_NO)
@@ -76,6 +91,7 @@ static void	init_info_texture_color(t_info *info, int type, char *tmp)
 		get_rgb_array(&tmp, info->floor_color);
 	else if (type == CEILLING)
 		get_rgb_array(&tmp, info->ceiling_color);
+	check_texture_color_info(info);
 }
 
 static void	read_map(int fd, t_info *info, char *tmp)
@@ -103,4 +119,6 @@ static void	read_map(int fd, t_info *info, char *tmp)
 	}
 	if (sp_cnt > 1)
 		ft_error("too many start point");
+	else if(sp_cnt == 0)
+		ft_error("no start point in the map");
 }
