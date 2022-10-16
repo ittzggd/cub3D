@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_info.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/13 20:03:12 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/16 15:05:29 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static void	case_mapchar(int fd, t_info *info, char *tmp)
 	read_map(fd, info, tmp);
 }
 
-
 static void	init_info_texture_color(t_info *info, int type, char *tmp)
 {
 	if (type == TEXTURE_NO)
@@ -105,6 +104,6 @@ static void	read_map(int fd, t_info *info, char *tmp)
 	}
 	if (sp_cnt > 1)
 		ft_error("too many start point");
-	else if(sp_cnt == 0)
+	else if (sp_cnt == 0)
 		ft_error("no start point in the map");
 }

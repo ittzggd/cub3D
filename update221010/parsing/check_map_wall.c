@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:48:41 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/12 21:17:57 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/16 15:07:59 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static int	surrounded_wall(char **map, int y, int x, t_map *tmap)
 {		
 	if (is_wall(map[y][x - 1]) != TRUE && is_space(map[y][x - 1]) != TRUE)
 		return (ERROR);
-	if(x != tmap->max_width - 1)
+	if (x != tmap->max_width - 1)
 	{
 		if (is_wall(map[y][x + 1]) != TRUE && is_space(map[y][x + 1]) != TRUE)
 			return (ERROR);

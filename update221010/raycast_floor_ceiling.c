@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_floor_ceiling.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 13:48:45 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 17:47:20 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/16 15:02:38 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ void	floorcast(t_game *game, t_ray *ray)
 		{
 			save_fflo_var(fflo);
 			color = get_rgbcode(game->info.floor_color);
-			// color = (color >> 1) & 8355711;
 			ray->tex.re_map[y][x] = color;
 			color = get_rgbcode(game->info.ceiling_color);
-			// color = (color >> 1) & 8355711;
 			ray->tex.re_map[(int)(ray->win_y) - y - 1][x] = color;
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:22:37 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/13 17:53:28 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/16 15:17:06 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,13 @@ void	init_cub3d(t_game *game)
 void	save_dir_vector(t_game *game, char dir)
 {
 	if (dir == 'W')
-	{
-		game->ray.dir_x = -1;
-		game->ray.dir_y = 0;
-		game->ray.plane_x = 0;
-		game->ray.plane_y = -0.66;
-	}
+		dir_w(game, dir);
 	else if (dir == 'E')
-	{
-		game->ray.dir_x = 1;
-		game->ray.dir_y = 0;
-		game->ray.plane_x = 0;
-		game->ray.plane_y = 0.66;
-	}
+		dir_e(game, dir);
 	else if (dir == 'N')
-	{
-		game->ray.dir_x = 0;
-		game->ray.dir_y = -1;
-		game->ray.plane_x = 0.66;
-		game->ray.plane_y = 0;
-	}
+		dir_n(game, dir);
 	else if (dir == 'S')
-	{
-		game->ray.dir_x = 0;
-		game->ray.dir_y = 1;
-		game->ray.plane_x = -0.66;
-		game->ray.plane_y = 0;
-	}
+		dir_s(game, dir);
 	game->ray.x_dir_x = game->ray.dir_y;
 	game->ray.x_dir_y = -(game->ray.dir_x);
 }
@@ -77,8 +57,6 @@ static void	init_ray(t_game *game)
 	game->ray.win_y = game->mlx.window_height;
 	game->ray.turn_speed = 0.2;
 	game->ray.move_speed = 0.2;
-	// game->ray.plane_x = 0;
-	// game->ray.plane_y = 0.66;
 	game->img.width = TEX_WIDTH;
 	game->img.height = TEX_HEIGHT;
 }
