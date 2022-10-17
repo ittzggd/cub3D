@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/17 10:55:53 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/17 11:42:37 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init_info(int fd, t_info *info)
 
 	init_rgb_array(info);
 	tmp = get_next_line(fd);
+	if (!tmp)
+		ft_error("file empty");
 	while (tmp)
 	{
 		type = get_text_type(&tmp, fd);

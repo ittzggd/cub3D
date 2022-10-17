@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_text_type.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:38:36 by yukim             #+#    #+#             */
-/*   Updated: 2022/09/24 13:38:36 by yukim            ###   ########.fr       */
+/*   Updated: 2022/10/17 11:39:34 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	get_text_type(char **line, int fd)
 	char	*copy;
 	int		type;
 
+	if(**line == '\0')
+		ft_error("file empty");
 	copy = get_skipped_copy_line(line, fd);
 	if (!copy)
 		return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   second_pos_info_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:43:47 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/17 11:20:21 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/17 11:29:56 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*get_second_info(char *str)
 			ft_error("[func : get_second_info] malloc faild.");
 	}
 	i = 0;
-	while (second_info[i] && second_info[i] != '\n')
+	while (second_info[i] && second_info[i] != '\n' && !is_space(second_info[i]))
 		i++;
 	second_info[i] = '\0';
 	return (second_info);
