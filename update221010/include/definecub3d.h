@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   definecub3d.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 21:54:49 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/12 18:58:06 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/17 11:12:27 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_info
 	char	*west_texture;
 	char	*east_texture;
 	int		floor_color[3];
-	int		ceiling_color[3];	
+	int		ceiling_color[3];
 	int		height;
 	int		width;
 	char	*backup;
@@ -104,8 +104,6 @@ typedef struct s_ray
 	double		camera_x;
 	double		plane_x;
 	double		plane_y;
-	// double		ray_x;
-	// double		ray_y;
 	double		ray_dir_x;
 	double		ray_dir_y;
 	int			map_x;
@@ -117,14 +115,10 @@ typedef struct s_ray
 	double		prep_wall_dist;
 	int			step_x;
 	int			step_y;
-	// double		hit_x;
-	// double		hit_y;
 	int			side;
-	
 	t_ray_tex	tex;
 	t_fl_ray	flo;
 }	t_ray;
-
 
 typedef struct s_mlx
 {

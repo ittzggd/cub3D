@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:46:57 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/16 15:17:49 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/17 11:12:34 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 
 //save_dir.c
-
 void	dir_w(t_game *game, char dir);
 void	dir_e(t_game *game, char dir);
 void	dir_n(t_game *game, char dir);
