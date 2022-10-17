@@ -1,7 +1,7 @@
-SO ../../images/texture4.xpm
-NO ../../images/texture3.xpm
-WE ../../images/texture2.xpm
-EA ../../images/texture1.xpm
+SO ./images/texture4.xpm
+NO ./images/texture3.xpm
+WE ./images/texture2.xpm
+EA ./images/texture1.xpm
 
 
 F 255, 255, 255

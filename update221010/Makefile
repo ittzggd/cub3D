@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: hejang <hejang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 21:55:03 by hejang            #+#    #+#              #
-#    Updated: 2022/10/17 10:40:18 by yukim            ###   ########seoul.kr   #
+#    Updated: 2022/10/17 10:43:33 by hejang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 MLX_FLAGS = -L./mlx -lmlx -framework OpenGL -framework Appkit
 
 SRCS = main.c \
