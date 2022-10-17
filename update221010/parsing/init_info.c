@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_info.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 14:45:10 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/16 15:05:29 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:55:53 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	init_info(int fd, t_info *info)
 			init_info_texture_color(info, type, tmp);
 		else if (type == MAP_CHARACTER)
 		{
+			is_valid_texture_color(info);
 			case_mapchar(fd, info, tmp);
 			break ;
 		}
@@ -41,7 +42,6 @@ void	init_info(int fd, t_info *info)
 		tmp = get_next_line(fd);
 	}
 	is_valid_element_color(info);
-	is_valid_texture_color(info);
 }
 
 static void	init_rgb_array(t_info *info)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <hejang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:47:01 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/16 15:04:54 by hejang           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:53:27 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	is_valid_texture_color(t_info *info)
 	int	i;
 
 	i = 0;
-	if (!(info->north_texture) || !(info->south_texture)
-		|| !(info->west_texture) || !(info->east_texture))
+	if (*(info->north_texture) == '\0' || *(info->south_texture) == '\0'
+		|| *(info->west_texture) == '\0' || *(info->east_texture) == '\0')
 		ft_error("no texture info");
 	while (i < 3)
 	{
