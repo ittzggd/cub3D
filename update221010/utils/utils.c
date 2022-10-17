@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:38:08 by hejang            #+#    #+#             */
-/*   Updated: 2022/10/10 16:25:12 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/17 11:35:11 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	ft_atoi(const char *nptr)
 		result = (result * 10) + (nptr[i] - '0');
 		i++;
 	}
-	if (is_space(nptr[i]) == TRUE)
-		return (SPACE);
-	else if (nptr[i] != '\0' && nptr[i] != '\n')
+	while (is_space(nptr[i]) == TRUE)
+		i++;
+	if (nptr[i] != '\0' && nptr[i] != '\n')
 		return (ERROR);
 	if (result > 255)
 		return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: yukim <yukim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:38:32 by yukim             #+#    #+#             */
-/*   Updated: 2022/10/10 16:18:17 by yukim            ###   ########seoul.kr  */
+/*   Updated: 2022/10/17 11:34:43 by yukim            ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ char	*get_texture_filepath(char **line)
 	i = extract_first_info_textlen(copy);
 	filepath = get_second_info(copy + i);
 	free(copy);
+	i = 0;
+	while (filepath[i] && is_space(filepath[i]) == FALSE)
+		i++;
+	if (is_space(filepath[i]) == TRUE)
+		filepath[i] = '\0';
 	return (filepath);
 }
 
